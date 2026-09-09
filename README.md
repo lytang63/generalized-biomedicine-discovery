@@ -320,7 +320,6 @@ GBD_SelEx/
 │
 ├── models/
 │   ├── gbd_layers.py           # 🧠 SCAN (main implementation)
-│   ├── gbd_layers_v5.py        # SCANv5 (alternative version)
 │   └── vision_transformer2.py  # ViT backbone wrappers
 │
 ├── methods/

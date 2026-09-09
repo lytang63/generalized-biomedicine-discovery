@@ -17,6 +17,12 @@ We introduce **Generalized Biomedicine Discovery (GBD)** and a unified benchmark
 
 ---
 
+## About This Repository
+
+This codebase is built on [SelEx](https://github.com/SarahRastegar/SelEx) (ECCV 2024). **GBD's SCAN layer is a plug-and-play module that can be integrated into any GCD (Generalized Category Discovery) framework** — not limited to SelEx. For environment setup and dependencies, please refer to the [SelEx GitHub repository](https://github.com/SarahRastegar/SelEx).
+
+---
+
 ## Key Contributions
 
 1. **GBD Benchmark**: A clinically grounded open-world paradigm with three realistic settings:

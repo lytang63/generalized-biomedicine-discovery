@@ -46,26 +46,6 @@ We evaluate on four biomedical imaging datasets across diverse modalities:
 
 ### Dataset Preparation
 
-Organize datasets as follows:
-
-```
-datasets/
-├── Gastrovision/
-│   ├── gastrovision_label.csv
-│   └── [class_folders]/
-├── HistoSet-5x14/
-│   ├── histoset5x14_label_20p.csv
-│   └── [class_folders]/
-├── MLL23/
-│   ├── mll23_label_4k.csv
-│   └── images/
-└── derm12345/
-    ├── derm12345_labels_half.csv
-    └── [class_folders]/
-```
-
-**CSV Format**: Each CSV should contain columns `path` (or `img_path`/`rel_path`) and `label` (or `label_id`/`class_id`).
-
 Update dataset paths in `config.py`:
 
 ```python
@@ -83,18 +63,6 @@ derm12345_dataroot = "path/to/derm12345"
 
 ```bash
 pip install -r requirements.txt
-```
-
-### kmeans_pytorch Installation
-
-SCAN relies on `kmeans_pytorch` for cluster assignments. Install it locally:
-
-```bash
-cd GBD_SelEx
-git clone https://github.com/subhadarship/kmeans_pytorch
-cd kmeans_pytorch
-pip install --editable .
-cd ..
 ```
 
 ### Pre-trained Models

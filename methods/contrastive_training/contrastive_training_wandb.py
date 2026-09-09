@@ -40,7 +40,6 @@ from kmeans_pytorch import kmeans
 
 from models.vision_transformer2 import DinoWithNeck, CLIPnoTextWithNeck
 from models.gbd_layers import SCAN
-from models.gbd_layers_v5 import SCANv5
 
 
 # TODO: Debug

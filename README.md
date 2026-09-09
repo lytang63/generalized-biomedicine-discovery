@@ -1,13 +1,22 @@
-# Generalized Biomedicine Discovery (GBD)
+<div align="center">
 
-Official PyTorch implementation of **"Generalized Biomedicine Discovery"** (ECCV 2026).
+# 🏥 Generalized Biomedicine Discovery (GBD)
 
-**Authors**: Luyao Tang¹, Yingkai Yang², Hanqi Chen², Jiewei Zheng³, Chaoqi Chen², and Cheng Chen†¹  
-¹ The University of Hong Kong, ² Shenzhen University, ³ Xiamen University
+**[ECCV 2026] Cognition-Inspired Open-World Discovery for Medical Imaging**
+
+[![Paper](https://img.shields.io/badge/📄_Paper-ECCV_2026-blue)](https://lytang63.github.io/generalized-biomedicine-discovery/ECCV2026___Generalized_Biomedicine_Discovery__Camera_Ready_.pdf)
+[![Project Page](https://img.shields.io/badge/🌐_Project-Page-green)](https://lytang63.github.io/generalized-biomedicine-discovery)
+[![Poster](https://img.shields.io/badge/🖼️_Poster-View-orange)](https://lytang63.github.io/generalized-biomedicine-discovery/assets/Generalized_Biomedicine_Discovery_ECCV2026_Poster_v3_3840x2880.png)
+
+**Luyao Tang¹** · **Yingkai Yang²** · **Hanqi Chen²** · **Jiewei Zheng³** · **Chaoqi Chen²** · **Cheng Chen†¹**
+
+¹ *The University of Hong Kong* · ² *Shenzhen University* · ³ *Xiamen University*
+
+</div>
 
 ---
 
-## Abstract
+## 📖 Abstract
 
 In real-world clinical practice, medical images face open-world shifts: (i) long-tailed rare diseases, (ii) subtle lesions dominated by normal anatomy, and (iii) hierarchical taxonomies. Yet most open-world paradigms assume flat, balanced label spaces, leaving these biomedical demands unresolved. 
 
@@ -17,29 +26,34 @@ We introduce **Generalized Biomedicine Discovery (GBD)** and a unified benchmark
 
 ---
 
-## About This Repository
+## 🔍 About This Repository
 
-This codebase is built on [SelEx](https://github.com/SarahRastegar/SelEx) (ECCV 2024). **GBD's SCAN layer is a plug-and-play module that can be integrated into any GCD (Generalized Category Discovery) framework** — not limited to SelEx. For environment setup and dependencies, please refer to the [SelEx GitHub repository](https://github.com/SarahRastegar/SelEx).
-
----
-
-## Key Contributions
-
-1. **GBD Benchmark**: A clinically grounded open-world paradigm with three realistic settings:
-   - **Setting I**: Long-tail Rare Disease Discovery
-   - **Setting II**: Normal-to-Abnormal Discovery  
-   - **Setting III**: Within-Taxonomy Discovery
-
-2. **SCAN Method**: A plug-and-play cognitive vision layer implementing:
-   - **Stage I (Predictive Suppression)**: Filters anticipated patterns under predictive coding
-   - **Stage II (Surprise-Evoked Salience)**: Uses residual energy to amplify unexpected deviations
-   - **Stage III (Complementary Accommodation)**: Integrates novelty while preserving established structure
-
-3. **Strong Results**: Extensive experiments show SCAN improves conventional GCD methods on the GBD benchmark, with particularly strong gains for SelEx in isolating subtle anomalies and discovering long-tailed rare diseases.
+> **💡 Note:** This codebase is built on [SelEx](https://github.com/SarahRastegar/SelEx) (ECCV 2024). **GBD's SCAN layer is a plug-and-play module that can be integrated into any GCD (Generalized Category Discovery) framework** — not limited to SelEx. For environment setup and dependencies, please refer to the [SelEx GitHub repository](https://github.com/SarahRastegar/SelEx).
 
 ---
 
-## Datasets
+## ✨ Key Contributions
+
+### 🏥 GBD Benchmark
+A clinically grounded open-world paradigm with **three realistic settings**:
+
+- **📊 Setting I**: Long-tail Rare Disease Discovery
+- **🔬 Setting II**: Normal-to-Abnormal Discovery  
+- **🌳 Setting III**: Within-Taxonomy Discovery
+
+### 🧠 SCAN Method
+A plug-and-play cognitive vision layer implementing:
+
+- **🔮 Stage I (Predictive Suppression)**: Filters anticipated patterns under predictive coding
+- **⚡ Stage II (Surprise-Evoked Salience)**: Uses residual energy to amplify unexpected deviations
+- **🔗 Stage III (Complementary Accommodation)**: Integrates novelty while preserving established structure
+
+### 📈 Strong Results
+Extensive experiments show SCAN improves conventional GCD methods on the GBD benchmark, with particularly strong gains for SelEx in isolating subtle anomalies and discovering long-tailed rare diseases.
+
+---
+
+## 📊 Datasets
 
 We evaluate on four biomedical imaging datasets across diverse modalities:
 
@@ -63,15 +77,15 @@ derm12345_dataroot = "path/to/derm12345"
 
 ---
 
-## Installation
+## 🚀 Installation
 
-### Requirements
+### 📦 Requirements
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Pre-trained Models
+### 🤖 Pre-trained Models
 
 Download DINO pre-trained weights:
 
@@ -101,34 +115,34 @@ python -c "import torch; print(f'✓ PyTorch {torch.__version__} (CUDA: {torch.c
 
 ---
 
-## Three Discovery Settings
+## 🧪 Three Discovery Settings
 
-### Setting I: Long-tail Rare Disease Discovery
+### 📊 Setting I: Long-tail Rare Disease Discovery
 
 Models frequent diseases as known classes and discovers rare tail diseases.
 
-- **Rationale**: Clinical annotations focus on common conditions; rare but critical diseases must be discovered
-- **Split**: Known = top 50% most frequent classes; Novel = bottom 50% (tail)
+- **🎯 Rationale**: Clinical annotations focus on common conditions; rare but critical diseases must be discovered
+- **📈 Split**: Known = top 50% most frequent classes; Novel = bottom 50% (tail)
 
-### Setting II: Normal-to-Abnormal Discovery
+### 🔬 Setting II: Normal-to-Abnormal Discovery
 
 Models normal anatomy as known classes and discovers heterogeneous abnormalities.
 
-- **Rationale**: Clinical workflow detects pathology relative to normal baselines
-- **Split**: Known = normal anatomical variants; Novel = pathological findings
+- **🎯 Rationale**: Clinical workflow detects pathology relative to normal baselines
+- **📈 Split**: Known = normal anatomical variants; Novel = pathological findings
 
-### Setting III: Within-Taxonomy Discovery
+### 🌳 Setting III: Within-Taxonomy Discovery
 
 Models known diagnostic families and discovers novel sibling subtypes within established hierarchies.
 
-- **Rationale**: Medical knowledge is hierarchically organized; new concepts emerge as fine-grained siblings
-- **Split**: Known = subset of siblings per taxonomy node; Novel = remaining siblings
+- **🎯 Rationale**: Medical knowledge is hierarchically organized; new concepts emerge as fine-grained siblings
+- **📈 Split**: Known = subset of siblings per taxonomy node; Novel = remaining siblings
 
 ---
 
-## Training
+## 🎓 Training
 
-### Quick Start
+### 🎯 Quick Start
 
 Train SCAN on a specific dataset and setting:
 
@@ -150,9 +164,9 @@ python -m methods.contrastive_training.contrastive_training_wandb \
     --seed 42
 ```
 
-**Note**: `--num_hyperedges` controls the number of evidence slots (E=16 in paper).
+> **📝 Note:** `--num_hyperedges` controls the number of evidence slots (E=16 in paper).
 
-### Using Shell Scripts
+### 🚀 Using Shell Scripts
 
 We provide training scripts for all four datasets:
 
@@ -184,17 +198,17 @@ bash contrastive_train_derm12345.sh
 
 ---
 
-## Evaluation
+## 📏 Evaluation
 
 The training script automatically evaluates on both validation and test sets using Hungarian matching.
 
-### Metrics
+### 📊 Metrics
 
 - **All**: Accuracy across all classes (known + novel)
 - **Old**: Accuracy on known classes
 - **New**: Accuracy on novel (discovered) classes
 
-### Reading Results
+### 📖 Reading Results
 
 Look for these sections in `outputs/logfile_*.out`:
 
@@ -206,15 +220,15 @@ Test ACC:
   All: 0.XXX | Old: 0.XXX | New: 0.XXX
 ```
 
-**Key Metric**: `Train ACC Unlabelled_v2 → New` corresponds to novel class discovery accuracy reported in the paper.
+> **🎯 Key Metric:** `Train ACC Unlabelled_v2 → New` corresponds to novel class discovery accuracy reported in the paper.
 
 ---
 
-## Method Overview: SCAN
+## 🧠 Method Overview: SCAN
 
 **SCAN (Surprise-evoked Complementary AccommodatioN)** is a lightweight plug-and-play layer that operates on vision backbone tokens.
 
-### Three-Stage Architecture
+### ⚙️ Three-Stage Architecture
 
 ```python
 from models.gbd_layers import SCAN
@@ -232,7 +246,7 @@ class_token, patch_tokens = backbone(image)  # [B,D], [B,N,D]
 updated_class_token = scan(patch_tokens, class_token)
 ```
 
-### Stage I: Predictive Suppression
+### 🔮 Stage I: Predictive Suppression
 
 Filters anticipated patterns to expose residual signals:
 
@@ -240,7 +254,7 @@ Filters anticipated patterns to expose residual signals:
 2. Form sample-conditioned **dominant anchor** (**u** in paper)
 3. Geometrically project out predictable components: **r**_i = **x**_i - (**x**_i^T **u**)**u**
 
-### Stage II: Surprise-Evoked Salience
+### ⚡ Stage II: Surprise-Evoked Salience
 
 Amplifies unexpected, localized deviations:
 
@@ -248,7 +262,7 @@ Amplifies unexpected, localized deviations:
 2. Convert to **salience weights** via softmax over surprise
 3. Re-aggregate residuals weighted by both slot assignment and surprise
 
-### Stage III: Complementary Accommodation
+### 🔗 Stage III: Complementary Accommodation
 
 Integrates novelty without disrupting known structure:
 
@@ -257,11 +271,11 @@ Integrates novelty without disrupting known structure:
 3. Gate by surprise (S), knownness (k), and peakedness (κ)
 4. Stable accommodation: **c**~ = **c** + γ · LN(Δ_⊥ + **x**_pool⊥)
 
-**No extra loss is introduced** — SCAN is trained end-to-end with the host GCD objective.
+> **💡 Key Insight:** No extra loss is introduced — SCAN is trained end-to-end with the host GCD objective.
 
 ---
 
-## Results Summary
+## 📈 Results Summary
 
 ### Setting I: Long-tail Rare Disease Discovery (Average across 4 datasets)
 
@@ -288,7 +302,7 @@ Integrates novelty without disrupting known structure:
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 GBD_SelEx/
@@ -305,7 +319,7 @@ GBD_SelEx/
 │   └── get_datasets.py         # Dataset factory with mode splits
 │
 ├── models/
-│   ├── gbd_layers.py           # SCAN (main implementation)
+│   ├── gbd_layers.py           # 🧠 SCAN (main implementation)
 │   ├── gbd_layers_v5.py        # SCANv5 (alternative version)
 │   └── vision_transformer2.py  # ViT backbone wrappers
 │
@@ -318,7 +332,7 @@ GBD_SelEx/
 
 ---
 
-## Citation
+## 📝 Citation
 
 If you use this code in your research, please cite:
 
@@ -333,7 +347,7 @@ If you use this code in your research, please cite:
 
 ---
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 This codebase builds upon:
 - [SelEx](https://github.com/SarahRastegar/SelEx) (ECCV 2024) - Base GCD framework
@@ -341,12 +355,12 @@ This codebase builds upon:
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Contact
+## 📧 Contact
 
 For questions or issues, please open an issue in this repository.

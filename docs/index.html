@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GBD · Generalized Biomedicine Discovery</title>
+    <meta name="description" content="Generalized Biomedicine Discovery: A clinically grounded open-world paradigm for discovering rare diseases, subtle lesions, and hierarchical subtypes in medical imaging." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="alternate" hreflang="zh-CN" href="zh/" />
+    <link rel="stylesheet" href="styles.css?v=20260909-1" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero-block">
+        <nav class="language-switch" aria-label="Language selection">
+          <a class="active" href="./" lang="en" aria-current="page">EN</a>
+          <span aria-hidden="true"></span>
+          <a href="zh/" lang="zh-CN">中文</a>
+        </nav>
+        <div class="container narrow">
+          <div class="award-showcase" aria-label="ECCV 2026 paper">
+            <div class="award-emblem" aria-hidden="true">
+              <span class="award-spark">✦</span><span class="award-trophy">◆</span><span class="award-spark">✦</span>
+            </div>
+            <div class="award-copy">
+              <span class="award-event">ECCV 2026 · European Conference on Computer Vision</span>
+              <strong>Accepted Paper</strong>
+              <span class="award-oral">Camera Ready Version</span>
+            </div>
+          </div>
+          <h1>Generalized Biomedicine Discovery</h1>
+          <p class="subtitle">Cognitive-Inspired Open-World Discovery for Medical Imaging</p>
+          <div class="authors" aria-label="Paper authors">
+            <span>Luyao Tang¹</span>, <span>Yingkai Yang²</span>, <span>Hanqi Chen²</span>, <span>Jiewei Zheng³</span>,
+            <span>Chaoqi Chen²</span>, <span>Cheng Chen†¹</span>
+          </div>
+          <p class="venue-line">¹ The University of Hong Kong · ² Shenzhen University · ³ Xiamen University</p>
+          <div class="project-links" aria-label="Project resources">
+            <a class="project-link" href="ECCV2026___Generalized_Biomedicine_Discovery__Camera_Ready_.pdf" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📄</span><span>Paper</span></a>
+            <a class="project-link" href="https://github.com/lytang63/generalized-biomedicine-discovery" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌘</span><span>Code</span></a>
+            <a class="project-link" href="assets/Generalized_Biomedicine_Discovery_ECCV2026_Poster_v3_3840x2880.png" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🖼️</span><span>Poster</span></a>
+            <a class="project-link" href="#citation"><span aria-hidden="true">{ }</span><span>BibTeX</span></a>
+          </div>
+          <p class="lede">
+            In real-world clinical practice, medical images face open-world shifts: <strong>long-tailed rare diseases</strong>,
+            <strong>subtle lesions dominated by normal anatomy</strong>, and <strong>hierarchical taxonomies</strong>.
+            Yet most open-world paradigms assume flat, balanced label spaces. We introduce <strong>GBD</strong>, a unified
+            benchmark spanning three clinically grounded discovery settings, and <strong>SCAN</strong>, a cognitive-inspired
+            method that exposes novelty suppressed by dominant visual manifolds.
+          </p>
+          <div class="hero-proof" aria-label="GBD contributions">
+            <div class="proof-card fragmented"><span class="proof-icon" aria-hidden="true">🏥</span><strong>Three Clinical Settings</strong><span>Long-tail rare disease, normal-to-abnormal, and within-taxonomy discovery.</span></div>
+            <div class="proof-card balanced"><span class="proof-icon" aria-hidden="true">💡</span><strong>Dominant-Pattern Insight</strong><span>Recurring structure forms a visual manifold that masks subtle novelty.</span></div>
+            <div class="proof-card over-mixed"><span class="proof-icon" aria-hidden="true">🧠</span><strong>Cognition-Inspired SCAN</strong><span>Predictive suppression, surprise salience, and complementary accommodation.</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="text-section first-section">
+          <div class="container narrow prose">
+            <h2>TL;DR</h2>
+            <p>
+              Medical discovery is open-world in three ways at once: rare diseases in the long tail, tiny lesions surrounded
+              by normal anatomy, and unseen subtypes within diagnostic families. <strong>GBD</strong> provides the first
+              unified benchmark for these realistic biomedical shifts. <strong>SCAN</strong> addresses the shared failure mode—dominant
+              known patterns suppress weak novelty signals—through a three-stage cognitive progression that works across all
+              settings without auxiliary losses or anomaly labels.
+            </p>
+          </div>
+        </section>
+
+        <section class="core-insight-section">
+          <div class="container wide">
+            <div class="section-heading core-insight-heading">
+              <p class="section-kicker">💡 Core insight</p>
+              <h2>Dominant known patterns form a visual manifold that masks subtle novelty.</h2>
+              <p>
+                When recurring structure—frequent diseases, normal anatomy, or parent-level morphology—dominates the embedding,
+                weak evidence for rare diseases, subtle lesions, or new sibling subtypes is attenuated by global representation
+                learning. Discovery requires exposing these suppressed signals without prior knowledge of what they contain.
+              </p>
+            </div>
+            <div class="insight-flow" aria-label="SCAN workflow">
+              <div class="insight-step"><span class="insight-icon" aria-hidden="true">🔮</span><div><strong>Predictive Suppression</strong><span>Filter anticipated patterns to expose residual signals orthogonal to the dominant anchor.</span></div></div>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <div class="insight-step"><span class="insight-icon" aria-hidden="true">⚡</span><div><strong>Surprise-Evoked Salience</strong><span>Amplify unexpected deviations using residual energy as within-image surprise.</span></div></div>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <div class="insight-step"><span class="insight-icon" aria-hidden="true">🔗</span><div><strong>Complementary Accommodation</strong><span>Integrate novelty while preserving established clinical structure via gated fusion.</span></div></div>
+            </div>
+            <div class="keyword-row" aria-label="Core properties">
+              <span>🏥 Clinically grounded</span><span>🔌 Plug-and-play</span><span>🧠 Cognition-inspired</span><span>🌍 Open-world ready</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="figure-section">
+          <div class="container narrow">
+            <figure class="insight-figure">
+              <a class="figure-link" href="assets/图 1.png" target="_blank" rel="noopener noreferrer" aria-label="Open GBD in practice figure">
+                <img src="assets/图 1.png" alt="GBD in practice: three realistic discovery regimes for long-tail rare disease, normal-to-abnormal, and within-taxonomy discovery." loading="lazy" />
+              </a>
+              <figcaption><strong>Figure 1: GBD in practice.</strong> Real biomedical data shift beyond the closed world: standard classification fails on unseen diseases, OSR merges heterogeneous novelties into one "unknown", and conventional discovery often assumes unlabeled data contains only novel classes. GBD formalizes three realistic discovery regimes that mirror clinical practice. <a class="figure-download" href="assets/图 1.png" target="_blank" rel="noopener noreferrer">Open figure <span aria-hidden="true">↗</span></a></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">🔬 Three Clinical Settings</p>
+              <h2>Unified protocol, different clinical challenges.</h2>
+              <p>
+                All three settings share the same GCD protocol—only known classes are labeled, while unlabeled data mixes
+                known and novel samples. What changes is the clinical source of the partition and, consequently, the visual
+                evidence SCAN must protect or expose.
+              </p>
+            </div>
+            <div class="settings-grid">
+              <article class="setting-card">
+                <div class="setting-header">
+                  <span class="setting-icon">📊</span>
+                  <h3>Setting I: Long-tail Rare Disease Discovery</h3>
+                </div>
+                <div class="setting-body">
+                  <p><strong>Clinical Motivation:</strong> Annotations focus on frequent conditions. Rare diseases in the long tail are clinically critical but sparsely observed.</p>
+                  <p><strong>Dominant-Pattern Problem:</strong> Frequent head-class patterns dominate the embedding, burying low-frequency cues from rare tail diseases.</p>
+                  <p><strong>SCAN's Strategy:</strong> Build a head-pattern anchor, then geometrically isolate tail-specific residuals.</p>
+                  <img src="assets/图 1 setting1.png" alt="Setting I: Long-tail rare disease discovery" loading="lazy" />
+                </div>
+              </article>
+
+              <article class="setting-card">
+                <div class="setting-header">
+                  <span class="setting-icon">🔍</span>
+                  <h3>Setting II: Normal-to-Abnormal Discovery</h3>
+                </div>
+                <div class="setting-body">
+                  <p><strong>Clinical Motivation:</strong> Clinicians detect pathology relative to diverse normal baselines. Multiple normal anatomical variants are labeled; abnormal findings must be discovered.</p>
+                  <p><strong>Dominant-Pattern Problem:</strong> Normal anatomy occupies most pixels, leaving subtle lesions underrepresented in the feature space.</p>
+                  <p><strong>SCAN's Strategy:</strong> Suppress the normal-anatomy manifold, then amplify localized abnormal residuals using surprise-evoked salience.</p>
+                  <img src="assets/图 1 setting2.png" alt="Setting II: Normal-to-abnormal discovery" loading="lazy" />
+                </div>
+              </article>
+
+              <article class="setting-card">
+                <div class="setting-header">
+                  <span class="setting-icon">🌳</span>
+                  <h3>Setting III: Within-Taxonomy Discovery</h3>
+                </div>
+                <div class="setting-body">
+                  <p><strong>Clinical Motivation:</strong> Medical taxonomies are hierarchical. New subtypes emerge as fine-grained siblings within established diagnostic families.</p>
+                  <p><strong>Dominant-Pattern Problem:</strong> Semantically adjacent siblings share most morphological context, making fine-grained subtype differences hard to isolate.</p>
+                  <p><strong>SCAN's Strategy:</strong> Preserve parent-level structure while injecting subtype-complementary evidence via orthogonal accommodation.</p>
+                  <img src="assets/图 1 setting3.png" alt="Setting III: Within-taxonomy discovery" loading="lazy" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="figure-section method-section">
+          <div class="container narrow">
+            <figure class="insight-figure">
+              <a class="figure-link" href="assets/图 2.png" target="_blank" rel="noopener noreferrer" aria-label="Open SCAN method overview">
+                <img src="assets/图 2.png" alt="SCAN method overview: three-stage cognitive progression from predictive suppression to surprise-evoked salience to complementary accommodation." loading="lazy" />
+              </a>
+              <figcaption><strong>Figure 2: SCAN method overview.</strong> SCAN refines representations in three steps: <strong>(I)</strong> it learns a notion of dominant evidence and suppresses predictable visual patterns to expose residual signals; <strong>(II)</strong> it scores the residuals by "surprise" to highlight sparse, high-energy deviations and aggregates them into salient evidence; and <strong>(III)</strong> it converts the salient evidence into a complementary update and injects it through a gated fusion, limiting disruption to known concepts while strengthening novel structure. <a class="figure-download" href="assets/图 2.png" target="_blank" rel="noopener noreferrer">Open figure <span aria-hidden="true">↗</span></a></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="method-detail-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">⚙️ Method Details</p>
+              <h2>From insight to implementation: the SCAN pipeline.</h2>
+              <p>
+                SCAN is a lightweight plug-and-play layer inserted after the backbone and before the unchanged GCD head.
+                The three stages mirror expert diagnostic cognition while remaining fully differentiable.
+              </p>
+            </div>
+            <div class="method-stages">
+              <article class="stage-card">
+                <div class="stage-visual">
+                  <img src="assets/图 2 stage1.png" alt="Stage I: Predictive Suppression" loading="lazy" />
+                </div>
+                <div class="stage-content">
+                  <div class="stage-header">
+                    <span class="stage-number">Stage I</span>
+                    <h3>Predictive Suppression</h3>
+                  </div>
+                  <p class="stage-desc">The brain suppresses predictable sensory content, freeing capacity for unexpected signals. SCAN builds a sample-conditioned <strong>dominant anchor</strong> from evidence slots and geometrically projects out predictable components.</p>
+                  <div class="stage-math">
+                    <code>r<sub>i</sub> = x<sub>i</sub> − (x<sub>i</sub><sup>⊤</sup>u)u</code>
+                  </div>
+                  <p class="stage-note">Residuals lie in the orthogonal complement, exposing what the dominant pattern cannot explain.</p>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <div class="stage-visual">
+                  <img src="assets/图 2 stage2.png" alt="Stage II: Surprise-Evoked Salience" loading="lazy" />
+                </div>
+                <div class="stage-content">
+                  <div class="stage-header">
+                    <span class="stage-number">Stage II</span>
+                    <h3>Surprise-Evoked Salience</h3>
+                  </div>
+                  <p class="stage-desc">Residual magnitude measures image-conditional mismatch. A token is <strong>surprising</strong> when the dominant anchor explains it poorly. SCAN converts residual energy into salience weights and re-aggregates evidence weighted by surprise.</p>
+                  <div class="stage-math">
+                    <code>s<sub>i</sub> = ‖r<sub>i</sub>‖<sub>2</sub>, &nbsp; w<sub>i</sub> ∝ exp(s<sub>i</sub>/τ<sub>s</sub>)</code>
+                  </div>
+                  <p class="stage-note">Within-image ranking concentrates on coherent, unpredicted deviations without cross-dataset calibration.</p>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <div class="stage-visual">
+                  <img src="assets/图 2 stage3.png" alt="Stage III: Complementary Accommodation" loading="lazy" />
+                </div>
+                <div class="stage-content">
+                  <div class="stage-header">
+                    <span class="stage-number">Stage III</span>
+                    <h3>Complementary Accommodation</h3>
+                  </div>
+                  <p class="stage-desc">Discovery must integrate deviations without distorting known structure. SCAN constructs a <strong>novelty vector</strong> from excited evidence, projects it to the complementary subspace orthogonal to the dominant anchor, and injects it via a non-parametric surprise gate.</p>
+                  <div class="stage-math">
+                    <code>c̃ = c + γ · LN(Δ<sub>⊥</sub> + x<sub>pool⊥</sub>)</code>
+                  </div>
+                  <p class="stage-note">The identity path recovers the original representation when γ is small, limiting feature drift.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="results-section" id="results">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">📊 Experimental Results</p>
+              <h2>Consistent gains across three discovery settings.</h2>
+              <p>
+                SCAN is evaluated on four biomedical datasets (GastroVision, HistoSet-5×14, MLL23, DERM12345) spanning
+                endoscopy, histopathology, microscopy, and dermatology. Results show overall improvements in novel-disease
+                discovery while revealing some dataset- and baseline-specific trade-offs.
+              </p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric-card"><strong>+10.5</strong><span>Setting I average All accuracy (SelEx)</span></div>
+              <div class="metric-card"><strong>+14.2</strong><span>Setting II average All accuracy (SelEx)</span></div>
+              <div class="metric-card"><strong>+12.3</strong><span>Setting III average All accuracy (SelEx)</span></div>
+              <div class="metric-card"><strong>+15.4</strong><span>Setting I average Old accuracy (SelEx)</span></div>
+            </div>
+            <div class="results-figures">
+              <figure class="result-figure">
+                <img src="assets/表 1.png" alt="Setting I: Long-tail rare disease discovery results" loading="lazy" />
+                <figcaption>Setting I: Long-tail Rare Disease Discovery</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <img src="assets/表 2.png" alt="Setting II: Normal-to-abnormal discovery results" loading="lazy" />
+                <figcaption>Setting II: Normal-to-Abnormal Discovery</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <img src="assets/表 3.png" alt="Setting III: Within-taxonomy discovery results" loading="lazy" />
+                <figcaption>Setting III: Within-Taxonomy Discovery</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="analysis-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">🔎 Mechanism Analysis</p>
+              <h2>How SCAN discovers novelty while preserving structure.</h2>
+              <p>
+                Training dynamics, evidence slot visualizations, and UMAP projections reveal how SCAN reallocates
+                representation capacity as training evolves, forming tighter within-class neighborhoods and clearer margins.
+              </p>
+            </div>
+            <div class="analysis-grid">
+              <figure class="analysis-card">
+                <img src="assets/图 3.png" alt="Training dynamics on Gastrovision Setting I" loading="lazy" />
+                <figcaption><strong>Adaptive Discovery Dynamics.</strong> SCAN preserves Old accuracy while New accuracy rises steadily, correlating with increased surprise signals and a slightly dropping knownness indicator.</figcaption>
+              </figure>
+              <figure class="analysis-card">
+                <img src="assets/图 4.png" alt="Evidence activations, UMAP embeddings, and efficiency analysis" loading="lazy" />
+                <figcaption><strong>Evidence Slots & Geometry.</strong> Spatial activations show evidence slots capture recurring cellular patterns. UMAP on MLL23 reveals tighter within-class clusters and clearer margins with SCAN.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="compat-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">🔌 Plug-and-Play Design</p>
+              <h2>Insert SCAN into your GCD pipeline.</h2>
+              <p>
+                SCAN is a lightweight module between the vision backbone and any existing GCD head. It works with SimGCD,
+                LegoGCD, SelEx, or other parametric/non-parametric frameworks without changing the original loss or clustering protocol.
+              </p>
+            </div>
+            <div class="compat-grid">
+              <div class="compat-card"><span>01</span><strong>Backbone</strong><em>ViT DINO patch + class tokens</em></div>
+              <div class="compat-arrow" aria-hidden="true">→</div>
+              <div class="compat-card accent"><span>02</span><strong>SCAN</strong><em>suppress → salience → accommodate</em></div>
+              <div class="compat-arrow" aria-hidden="true">→</div>
+              <div class="compat-card"><span>03</span><strong>GCD Head</strong><em>unchanged loss and clustering</em></div>
+            </div>
+            <div class="code-card">
+              <div class="code-label">Minimal integration</div>
+              <pre><code>from models.gbd_layers import SCAN
+
+scan = SCAN(embed_dim=768, num_evidence_slots=16, use_gru_update=True)
+class_token, patch_tokens = backbone(image)
+updated_class_token = scan(patch_tokens, class_token)
+# feed to your existing GCD projection/head</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-section">
+          <div class="container narrow prose">
+            <h2>Clinical Impact & Future Directions</h2>
+            <p>
+              GBD is not intended as a leaderboard against text-supervised multimodal models. It targets upstream clinical
+              <strong>concept formation</strong>: organizing unlabeled archives into coherent cohorts that experts can verify,
+              name, merge, or split before integration into guidelines and curated datasets. This matters because emerging
+              diseases and subtypes often lack consistent nomenclature across sites and time, while clinicians require
+              cohort-level discovery, representative prototypes, and similar-case lists rather than one-off predictions.
+            </p>
+            <p>
+              The three-setting benchmark and the cognition-inspired design offer a reusable interface for continual discovery,
+              domain-shifted discovery, open-world recognition, and other tasks whose category inventory evolves over time.
+            </p>
+          </div>
+        </section>
+
+        <section class="citation-section" id="citation">
+          <div class="container narrow">
+            <div class="section-heading">
+              <p class="section-kicker">Reference</p>
+              <h2>Citation</h2>
+              <p>If you use GBD or SCAN in your research, please cite:</p>
+            </div>
+            <div class="citation-card">
+              <button class="copy-button" type="button" aria-label="Copy BibTeX citation" data-default-label="Copy BibTeX" data-copied-label="Copied">Copy BibTeX</button>
+              <pre><code id="bibtex">@inproceedings{tang2026gbd,
+  title={Generalized Biomedicine Discovery},
+  author={Tang, Luyao and Yang, Yingkai and Chen, Hanqi and Zheng, Jiewei and Chen, Chaoqi and Chen, Cheng},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2026}
+}</code></pre>
+              <p class="copy-status" role="status" aria-live="polite" data-copied-message="BibTeX copied to clipboard."></p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container narrow">
+          <p>GBD · ECCV 2026 · <a href="https://github.com/lytang63/generalized-biomedicine-discovery" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js?v=20260909-1"></script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GBD · Generalized Biomedicine Discovery</title>
+    <meta name="description" content="通用生物医学发现：一个临床驱动的开放世界范式，用于发现罕见疾病、微小病灶和医学影像中的分层亚型。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="alternate" hreflang="en" href="../" />
+    <link rel="stylesheet" href="../styles.css?v=20260909-1" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero-block">
+        <nav class="language-switch" aria-label="语言选择">
+          <a href="../" lang="en">EN</a>
+          <span aria-hidden="true"></span>
+          <a class="active" href="./" lang="zh-CN" aria-current="page">中文</a>
+        </nav>
+        <div class="container narrow">
+          <div class="award-showcase" aria-label="ECCV 2026 论文">
+            <div class="award-emblem" aria-hidden="true">
+              <span class="award-spark">✦</span><span class="award-trophy">◆</span><span class="award-spark">✦</span>
+            </div>
+            <div class="award-copy">
+              <span class="award-event">ECCV 2026 · European Conference on Computer Vision</span>
+              <strong>录用论文</strong>
+              <span class="award-oral">Camera Ready 版本</span>
+            </div>
+          </div>
+          <h1>Generalized Biomedicine Discovery</h1>
+          <p class="subtitle">认知启发的医学影像开放世界发现</p>
+          <div class="authors" aria-label="论文作者">
+            <span>Luyao Tang¹</span>, <span>Yingkai Yang²</span>, <span>Hanqi Chen²</span>, <span>Jiewei Zheng³</span>,
+            <span>Chaoqi Chen²</span>, <span>Cheng Chen†¹</span>
+          </div>
+          <p class="venue-line">¹ 香港大学 · ² 深圳大学 · ³ 厦门大学</p>
+          <div class="project-links" aria-label="项目资源">
+            <a class="project-link" href="../ECCV2026___Generalized_Biomedicine_Discovery__Camera_Ready_.pdf" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📄</span><span>论文</span></a>
+            <a class="project-link" href="https://github.com/lytang63/generalized-biomedicine-discovery" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌘</span><span>代码</span></a>
+            <a class="project-link" href="../assets/Generalized_Biomedicine_Discovery_ECCV2026_Poster_v3_3840x2880.png" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🖼️</span><span>海报</span></a>
+            <a class="project-link" href="#citation"><span aria-hidden="true">{ }</span><span>引用</span></a>
+          </div>
+          <p class="lede">
+            在真实临床实践中，医学影像面临开放世界迁移：<strong>长尾罕见疾病</strong>、<strong>被正常解剖掩盖的微小病灶</strong>，以及<strong>分层分类体系</strong>。然而大多数开放世界范式假设扁平、平衡的标签空间。我们引入 <strong>GBD</strong>，一个涵盖三种临床驱动发现设定的统一基准，以及 <strong>SCAN</strong>，一种认知启发的方法，用于揭示被主导视觉流形抑制的新颖性。
+          </p>
+          <div class="hero-proof" aria-label="GBD 贡献">
+            <div class="proof-card fragmented"><span class="proof-icon" aria-hidden="true">🏥</span><strong>三种临床设定</strong><span>长尾罕见疾病、正常到异常、以及分类体系内发现。</span></div>
+            <div class="proof-card balanced"><span class="proof-icon" aria-hidden="true">💡</span><strong>主导模式洞察</strong><span>反复出现的结构形成视觉流形，掩盖了微妙的新颖性。</span></div>
+            <div class="proof-card over-mixed"><span class="proof-icon" aria-hidden="true">🧠</span><strong>认知启发的 SCAN</strong><span>预测性抑制、惊奇唤起的显著性和互补性适应。</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="text-section first-section">
+          <div class="container narrow prose">
+            <h2>概述</h2>
+            <p>
+              医学发现同时面临三种开放世界挑战：长尾中的罕见疾病、被正常解剖包围的微小病灶，以及诊断家族内的未见亚型。<strong>GBD</strong> 为这些真实的生物医学迁移提供了首个统一基准。<strong>SCAN</strong> 通过三阶段认知进程解决共同的失效模式——主导已知模式抑制弱新颖性信号——在所有设定中工作，无需辅助损失或异常标签。
+            </p>
+          </div>
+        </section>
+
+        <section class="core-insight-section">
+          <div class="container wide">
+            <div class="section-heading core-insight-heading">
+              <p class="section-kicker">💡 核心洞察</p>
+              <h2>主导的已知模式形成视觉流形，掩盖了微妙的新颖性</h2>
+              <p>
+                当反复出现的结构——频繁的疾病、正常解剖或父级形态——主导嵌入空间时，罕见疾病、微小病灶或新同级亚型的弱证据在全局表示学习中被削弱。发现需要在不事先知道它们包含什么的情况下揭示这些被抑制的信号。
+              </p>
+            </div>
+            <div class="insight-flow" aria-label="SCAN 工作流程">
+              <div class="insight-step"><span class="insight-icon" aria-hidden="true">🔮</span><div><strong>预测性抑制</strong><span>过滤预期模式，揭示与主导锚点正交的残差信号。</span></div></div>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <div class="insight-step"><span class="insight-icon" aria-hidden="true">⚡</span><div><strong>惊奇唤起的显著性</strong><span>使用残差能量作为图像内惊奇来放大意外的偏差。</span></div></div>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <div class="insight-step"><span class="insight-icon" aria-hidden="true">🔗</span><div><strong>互补性适应</strong><span>通过门控融合整合新颖性，同时保留已建立的临床结构。</span></div></div>
+            </div>
+            <div class="keyword-row" aria-label="核心特性">
+              <span>🏥 临床驱动</span><span>🔌 即插即用</span><span>🧠 认知启发</span><span>🌍 开放世界就绪</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="figure-section">
+          <div class="container narrow">
+            <figure class="insight-figure">
+              <a class="figure-link" href="../assets/图 1.png" target="_blank" rel="noopener noreferrer" aria-label="打开 GBD 实践图">
+                <img src="../assets/图 1.png" alt="GBD 实践：长尾罕见疾病、正常到异常和分类体系内发现的三种现实发现机制。" loading="lazy" />
+              </a>
+              <figcaption><strong>图 1：GBD 实践。</strong>真实的生物医学数据超越了封闭世界：标准分类在未见疾病上失败，OSR 将异构新颖性合并为单一"未知"，传统发现通常假设未标记数据仅包含新类别。GBD 形式化了三种反映临床实践的现实发现机制。<a class="figure-download" href="../assets/图 1.png" target="_blank" rel="noopener noreferrer">打开图片 <span aria-hidden="true">↗</span></a></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">🔬 三种临床设定</p>
+              <h2>统一协议，不同的临床挑战</h2>
+              <p>
+                所有三种设定共享相同的 GCD 协议——只有已知类别被标记，而未标记数据混合已知和新颖样本。变化的是划分的临床来源，以及 SCAN 必须保护或揭示的视觉证据。
+              </p>
+            </div>
+            <div class="settings-grid">
+              <article class="setting-card">
+                <div class="setting-header">
+                  <span class="setting-icon">📊</span>
+                  <h3>Setting I: 长尾罕见疾病发现</h3>
+                </div>
+                <div class="setting-body">
+                  <p><strong>临床动机：</strong>标注集中于频繁的病症。长尾中的罕见疾病在临床上至关重要但观察稀少。</p>
+                  <p><strong>主导模式问题：</strong>频繁的头部类别模式主导嵌入空间，掩埋来自罕见尾部疾病的低频线索。</p>
+                  <p><strong>SCAN 策略：</strong>构建头部模式锚点，然后几何隔离尾部特定残差。</p>
+                  <img src="../assets/图 1 setting1.png" alt="设定 I：长尾罕见疾病发现" loading="lazy" />
+                </div>
+              </article>
+
+              <article class="setting-card">
+                <div class="setting-header">
+                  <span class="setting-icon">🔍</span>
+                  <h3>Setting II: 正常到异常发现</h3>
+                </div>
+                <div class="setting-body">
+                  <p><strong>临床动机：</strong>临床医生相对于多样的正常基线检测病理。多个正常解剖变体被标记；异常发现必须在未标记数据中被发现。</p>
+                  <p><strong>主导模式问题：</strong>正常解剖占据大部分像素，使微小病灶在特征空间中表示不足。</p>
+                  <p><strong>SCAN 策略：</strong>抑制正常解剖流形，然后使用惊奇唤起的显著性放大局部异常残差。</p>
+                  <img src="../assets/图 1 setting2.png" alt="设定 II：正常到异常发现" loading="lazy" />
+                </div>
+              </article>
+
+              <article class="setting-card">
+                <div class="setting-header">
+                  <span class="setting-icon">🌳</span>
+                  <h3>Setting III: 分类体系内发现</h3>
+                </div>
+                <div class="setting-body">
+                  <p><strong>临床动机：</strong>医学分类是分层的。新亚型作为已建立诊断家族内的细粒度同级出现。</p>
+                  <p><strong>主导模式问题：</strong>语义上相邻的同级共享大部分形态学上下文，使细粒度亚型差异难以隔离。</p>
+                  <p><strong>SCAN 策略：</strong>通过正交适应保留父级结构，同时注入亚型互补性证据。</p>
+                  <img src="../assets/图 1 setting3.png" alt="设定 III：分类体系内发现" loading="lazy" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="figure-section method-section">
+          <div class="container narrow">
+            <figure class="insight-figure">
+              <a class="figure-link" href="../assets/图 2.png" target="_blank" rel="noopener noreferrer" aria-label="打开 SCAN 方法概览">
+                <img src="../assets/图 2.png" alt="SCAN 方法概览：从预测性抑制到惊奇唤起的显著性到互补性适应的三阶段认知进程。" loading="lazy" />
+              </a>
+              <figcaption><strong>图 2：SCAN 方法概览。</strong>SCAN 通过三个步骤细化表示：<strong>(I)</strong> 学习主导证据的概念并抑制可预测的视觉模式以揭示残差信号；<strong>(II)</strong> 通过"惊奇"对残差评分，突出显示稀疏的高能量偏差并将它们聚合为显著证据；<strong>(III)</strong> 将显著证据转换为互补更新，并通过门控融合注入，限制对已知概念的干扰，同时增强新颖结构。<a class="figure-download" href="../assets/图 2.png" target="_blank" rel="noopener noreferrer">打开图片 <span aria-hidden="true">↗</span></a></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="method-detail-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">⚙️ 方法细节</p>
+              <h2>从洞察到实现：SCAN 流程</h2>
+              <p>
+                SCAN 是一个轻量级的即插即用层，插入在主干网络之后和未改变的 GCD 头之前。三个阶段反映专家诊断认知，同时保持完全可微分。
+              </p>
+            </div>
+            <div class="method-stages">
+              <article class="stage-card">
+                <div class="stage-visual">
+                  <img src="../assets/图 2 stage1.png" alt="阶段 I：预测性抑制" loading="lazy" />
+                </div>
+                <div class="stage-content">
+                  <div class="stage-header">
+                    <span class="stage-number">Stage I</span>
+                    <h3>预测性抑制</h3>
+                  </div>
+                  <p class="stage-desc">大脑抑制可预测的感觉内容，为意外信号释放容量。SCAN 从证据槽构建样本条件的<strong>主导锚点</strong>，并几何投影出可预测的成分。</p>
+                  <div class="stage-math">
+                    <code>r<sub>i</sub> = x<sub>i</sub> − (x<sub>i</sub><sup>⊤</sup>u)u</code>
+                  </div>
+                  <p class="stage-note">残差位于正交补空间中，揭示主导模式无法解释的内容。</p>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <div class="stage-visual">
+                  <img src="../assets/图 2 stage2.png" alt="阶段 II：惊奇唤起的显著性" loading="lazy" />
+                </div>
+                <div class="stage-content">
+                  <div class="stage-header">
+                    <span class="stage-number">Stage II</span>
+                    <h3>惊奇唤起的显著性</h3>
+                  </div>
+                  <p class="stage-desc">残差幅度衡量图像条件失配。当主导锚点解释不佳时，令牌是<strong>令人惊讶的</strong>。SCAN 将残差能量转换为显著性权重，并重新聚合由惊奇加权的证据。</p>
+                  <div class="stage-math">
+                    <code>s<sub>i</sub> = ‖r<sub>i</sub>‖<sub>2</sub>, &nbsp; w<sub>i</sub> ∝ exp(s<sub>i</sub>/τ<sub>s</sub>)</code>
+                  </div>
+                  <p class="stage-note">图像内排名集中于连贯的、未预测的偏差，无需跨数据集校准。</p>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <div class="stage-visual">
+                  <img src="../assets/图 2 stage3.png" alt="阶段 III：互补性适应" loading="lazy" />
+                </div>
+                <div class="stage-content">
+                  <div class="stage-header">
+                    <span class="stage-number">Stage III</span>
+                    <h3>互补性适应</h3>
+                  </div>
+                  <p class="stage-desc">发现必须在不扭曲已知结构的情况下整合偏差。SCAN 从激发的证据构建<strong>新颖性向量</strong>，将其投影到与主导锚点正交的互补子空间，并通过非参数惊奇门注入。</p>
+                  <div class="stage-math">
+                    <code>c̃ = c + γ · LN(Δ<sub>⊥</sub> + x<sub>pool⊥</sub>)</code>
+                  </div>
+                  <p class="stage-note">当 γ 较小时，恒等路径恢复原始表示，限制特征漂移。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="results-section" id="results">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">📊 实验结果</p>
+              <h2>三种发现设定中的一致提升</h2>
+              <p>
+                SCAN 在四个生物医学数据集（GastroVision、HistoSet-5×14、MLL23、DERM12345）上进行评估，涵盖内窥镜检查、组织病理学、显微镜检查和皮肤病学。结果显示在新疾病发现方面的整体改进，同时揭示了一些数据集和基线特定的权衡。
+              </p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric-card"><strong>+10.5</strong><span>设定 I 平均 All 准确率 (SelEx)</span></div>
+              <div class="metric-card"><strong>+14.2</strong><span>设定 II 平均 All 准确率 (SelEx)</span></div>
+              <div class="metric-card"><strong>+12.3</strong><span>设定 III 平均 All 准确率 (SelEx)</span></div>
+              <div class="metric-card"><strong>+15.4</strong><span>设定 I 平均 Old 准确率 (SelEx)</span></div>
+            </div>
+            <div class="results-figures">
+              <figure class="result-figure">
+                <img src="../assets/表 1.png" alt="设定 I：长尾罕见疾病发现结果" loading="lazy" />
+                <figcaption>设定 I：长尾罕见疾病发现</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <img src="../assets/表 2.png" alt="设定 II：正常到异常发现结果" loading="lazy" />
+                <figcaption>设定 II：正常到异常发现</figcaption>
+              </figure>
+              <figure class="result-figure">
+                <img src="../assets/表 3.png" alt="设定 III：分类体系内发现结果" loading="lazy" />
+                <figcaption>设定 III：分类体系内发现</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="analysis-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">🔎 机制分析</p>
+              <h2>SCAN 如何在保留结构的同时发现新颖性</h2>
+              <p>
+                训练动态、证据槽可视化和 UMAP 投影揭示了 SCAN 如何在训练演进时重新分配表示容量，形成更紧密的类内邻域和更清晰的边界。
+              </p>
+            </div>
+            <div class="analysis-grid">
+              <figure class="analysis-card">
+                <img src="../assets/图 3.png" alt="GastroVision 设定 I 的训练动态" loading="lazy" />
+                <figcaption><strong>自适应发现动态。</strong>SCAN 保持 Old 准确率与 SelEx 相当，而 New 准确率稳步上升，与增加的惊奇信号和略微下降的已知度指标相关。</figcaption>
+              </figure>
+              <figure class="analysis-card">
+                <img src="../assets/图 4.png" alt="证据激活、UMAP 嵌入和效率分析" loading="lazy" />
+                <figcaption><strong>证据槽与几何结构。</strong>空间激活显示证据槽捕获反复出现的细胞模式。MLL23 上的 UMAP 揭示了使用 SCAN 时更紧密的类内簇和更清晰的边界。</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="compat-section">
+          <div class="container wide">
+            <div class="section-heading">
+              <p class="section-kicker">🔌 即插即用设计</p>
+              <h2>将 SCAN 插入您的 GCD 流程</h2>
+              <p>
+                SCAN 是视觉主干和任何现有 GCD 头之间的轻量级模块。它适用于 SimGCD、LegoGCD、SelEx 或其他参数/非参数框架，而无需更改原始损失或聚类协议。
+              </p>
+            </div>
+            <div class="compat-grid">
+              <div class="compat-card"><span>01</span><strong>主干网络</strong><em>ViT DINO patch + class tokens</em></div>
+              <div class="compat-arrow" aria-hidden="true">→</div>
+              <div class="compat-card accent"><span>02</span><strong>SCAN</strong><em>抑制 → 显著性 → 适应</em></div>
+              <div class="compat-arrow" aria-hidden="true">→</div>
+              <div class="compat-card"><span>03</span><strong>GCD 头</strong><em>不变的损失和聚类</em></div>
+            </div>
+            <div class="code-card">
+              <div class="code-label">最小集成</div>
+              <pre><code>from models.gbd_layers import SCAN
+
+scan = SCAN(embed_dim=768, num_evidence_slots=16, use_gru_update=True)
+class_token, patch_tokens = backbone(image)
+updated_class_token = scan(patch_tokens, class_token)
+# 输入到您现有的 GCD 投影/头</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-section">
+          <div class="container narrow prose">
+            <h2>临床影响与未来方向</h2>
+            <p>
+              GBD 的目标不是与文本监督的多模态模型竞争的排行榜。它针对上游临床<strong>概念形成</strong>：将未标记的档案组织成连贯的队列，专家可以在整合到指南和精选数据集之前对其进行验证、命名、合并或拆分。这很重要，因为新兴疾病和亚型通常在不同地点和时间缺乏一致的命名法，而临床医生需要队列级发现、代表性原型和相似病例列表，而不是一次性预测。
+            </p>
+            <p>
+              三设定基准和认知启发的设计为持续发现、领域迁移发现、开放世界识别以及类别清单随时间演变的其他任务提供了可重用的接口。
+            </p>
+          </div>
+        </section>
+
+        <section class="citation-section" id="citation">
+          <div class="container narrow">
+            <div class="section-heading">
+              <p class="section-kicker">参考文献</p>
+              <h2>引用</h2>
+              <p>如果您在研究中使用 GBD 或 SCAN，请引用：</p>
+            </div>
+            <div class="citation-card">
+              <button class="copy-button" type="button" aria-label="复制 BibTeX 引用" data-default-label="复制 BibTeX" data-copied-label="已复制">复制 BibTeX</button>
+              <pre><code id="bibtex">@inproceedings{tang2026gbd,
+  title={Generalized Biomedicine Discovery},
+  author={Tang, Luyao and Yang, Yingkai and Chen, Hanqi and Zheng, Jiewei and Chen, Chaoqi and Chen, Cheng},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2026}
+}</code></pre>
+              <p class="copy-status" role="status" aria-live="polite" data-copied-message="BibTeX 已复制到剪贴板。"></p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container narrow">
+          <p>GBD · ECCV 2026 · <a href="https://github.com/lytang63/generalized-biomedicine-discovery" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </div>
+      </footer>
+    </div>
+    <script src="../script.js?v=20260909-1"></script>
+  </body>
+</html>
